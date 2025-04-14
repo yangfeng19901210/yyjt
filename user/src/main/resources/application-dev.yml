@@ -1,0 +1,14 @@
+# 开发环境配置
+spring:
+  config:
+    activate:
+      on-profile: dev
+  cloud:
+    nacos:
+      discovery:
+        enabled: false
+server:
+  port: 8080
+
+seata:
+  enabled: false

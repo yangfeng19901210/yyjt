@@ -1,0 +1,13 @@
+# 生成环境配置
+spring:
+  config:
+    activate:
+      on-profile: prod
+  cloud:
+    nacos:
+      discovery:
+        enabled: false
+server:
+  port: 83
+seata:
+  enabled: false
