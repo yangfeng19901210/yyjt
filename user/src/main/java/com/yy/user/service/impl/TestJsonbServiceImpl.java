@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestJsonbServiceImpl extends ServiceImpl<TestJsonbMapper, TestJsonb>
     implements TestJsonbService{
-
 }
 
 

@@ -77,7 +77,6 @@ public class JsonbTypeHandler extends JacksonTypeHandler {
         if(StringUtils.isBlank(pv)) {
             return v;
         }
-
         return parse(p.getValue());
     }
 }
