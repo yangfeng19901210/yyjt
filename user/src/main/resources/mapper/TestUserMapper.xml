@@ -7,10 +7,12 @@
     <resultMap id="BaseResultMap" type="com.yy.user.entity.TestUser">
             <id property="uuid" column="uuid" jdbcType="VARCHAR"/>
             <result property="userId" column="user_id" jdbcType="INTEGER"/>
-            <result property="userInfo" column="user_info" jdbcType="OTHER" typeHandler="com.yy.user.config.mybatis.JsonbTypeHandler"/>
+            <result property="userInfo" column="user_info" jdbcType="OTHER" typeHandler="com.yy.user.config.mybatis.handler.special.JsonbTypeHandler"/>
+            <result property="phones" column="phones" jdbcType="VARCHAR"/>
+            <result property="friendIds" column="friend_ids" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        uuid,user_id,user_info
+        uuid,user_id,user_info,phones,friend_ids
     </sql>
 </mapper>

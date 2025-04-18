@@ -17,13 +17,15 @@ class TestUserServiceImplTest {
     void testSave(){
         TestUser testUser = new TestUser();
         testUser.setUserId(2);
-        testUser.setUserInfo(null);
+        testUser.setUserInfo(new UserInfoDTO("11","11","rrrr"));
+        testUser.setPhones(new String[]{"11","11","rrrr"});
+        testUser.setFriendIds(new Integer[]{1,2,3});
         testUserService.save(testUser);
     }
 
     @Test
     void testGetById(){
-        TestUser testUser = testUserService.getById("28d2b70f2a0c0a2c0d5ac0c1e4382cb2");
+        TestUser testUser = testUserService.getById("c629df20c67048b5b0f063b18cec7b7c");
         System.out.println(testUser);
     }
 

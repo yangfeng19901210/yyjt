@@ -7,7 +7,7 @@
     <resultMap id="BaseResultMap" type="com.yy.user.entity.TestJsonb">
             <id property="uuid" column="uuid" jdbcType="VARCHAR"/>
             <result property="userId" column="user_id" jdbcType="INTEGER"/>
-            <result property="userInfo" column="user_info" jdbcType="OTHER" typeHandler="com.yy.user.config.mybatis.JsonbTypeHandler"/>
+            <result property="userInfo" column="user_info" jdbcType="OTHER" typeHandler="com.yy.user.config.mybatis.handler.special.JsonbTypeHandler"/>
     </resultMap>
 
     <sql id="Base_Column_List">

@@ -1,4 +1,4 @@
-package com.yy.user.config.mybatis;
+package com.yy.user.config.mybatis.handler.special;
 
 import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import org.apache.commons.lang3.StringUtils;
