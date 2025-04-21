@@ -8,9 +8,13 @@
             <id property="uuid" column="uuid" jdbcType="VARCHAR"/>
             <result property="userId" column="user_id" jdbcType="INTEGER"/>
             <result property="userInfo" column="user_info" jdbcType="OTHER" typeHandler="com.yy.user.config.mybatis.handler.special.JsonbTypeHandler"/>
+            <result property="crtTime" column="crt_time" jdbcType="TIMESTAMP"/>
+            <result property="uptTime" column="upt_time" jdbcType="TIMESTAMP"/>
+            <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        uuid,user_id,user_info
+        uuid,user_id,user_info,crt_time,upt_time,
+        del_flag
     </sql>
 </mapper>

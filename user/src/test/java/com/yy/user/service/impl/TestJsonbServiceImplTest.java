@@ -8,6 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class TestJsonbServiceImplTest {
@@ -16,9 +18,17 @@ class TestJsonbServiceImplTest {
     @Test
     void testSave(){
         TestJsonb testJsonb = new TestJsonb();
-        testJsonb.setUserId(5);
-        testJsonb.setUserInfo(null);
+        testJsonb.setUserId(9);
+        testJsonb.setUserInfo(new UserInfoDTO("张花草", "13353426687", "12345678901"));
+        testJsonb.setCrtTime(LocalDateTime.now());
+        testJsonb.setUptTime(LocalDateTime.now());
         testJsonbService.save(testJsonb);
+    }
+
+    @Test
+    void testGetById(){
+        TestJsonb testJsonb = testJsonbService.getById("e81fae22dd4a39738e73092907539408");
+        System.out.println(testJsonb);
     }
 
 }

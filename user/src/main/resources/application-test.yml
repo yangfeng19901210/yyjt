@@ -7,6 +7,13 @@ spring:
     nacos:
       discovery:
         enabled: false
+  # 数据源配置
+  datasource:
+    url: jdbc:postgresql://192.168.2.84:5432/dev-hltq-dragon?allowMultiQueries=true
+    username: hltq_dev
+    password: 056f7c2b54ef4ccfb494c652fca8319d
+    driver-class-name: org.postgresql.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
 server:
   port: 8081
 seata:
