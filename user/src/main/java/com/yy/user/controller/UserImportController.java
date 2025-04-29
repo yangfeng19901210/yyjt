@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Validator;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.Map;
 
@@ -20,7 +21,13 @@ import java.util.Map;
 public class UserImportController {
     @Autowired
     private Validator validator;
-
+    /**
+     * 司机信息导入
+     * @param file
+     * @Return: org.springframework.http.ResponseEntity<?>
+     * @author: yangfeng
+     * @date: 2025/4/29 9:03
+     **/
     @PostMapping("/import")
     public ResponseEntity<?> importUsers(@RequestParam("file") MultipartFile file) {
         try (InputStream in = file.getInputStream()) {
@@ -45,12 +52,21 @@ public class UserImportController {
             );
         }
     }
+    /**
+     * 司机信息模板下载
+     * @param response
+     * @Return: void
+     * @author: yangfeng
+     * @date: 2025/4/29 9:03
+     **/
     @GetMapping("/template")
     public void downloadTemplate(HttpServletResponse response) throws IOException {
+        String encodedFileName = URLEncoder.encode("司机信息模板.xlsx", "UTF-8")
+                .replaceAll("\\+", "%20");  // 替换空格编码[3](@ref)
         response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-        response.setHeader("Content-Disposition", "attachment;filename=user_template.xlsx");
+        response.setHeader("Content-Disposition", "attachment; filename*=UTF-8''" + encodedFileName);
         EasyExcel.write(response.getOutputStream(), UserImportDTO.class)
-                .sheet("用户模板")
+                .sheet("司机模板")
                 .doWrite(Collections.emptyList());
     }
 }
