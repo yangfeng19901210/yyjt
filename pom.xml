@@ -12,6 +12,7 @@
         <module>auth</module>
         <module>user</module>
         <module>order</module>
+        <module>spring-boot-redis</module>
     </modules>
 
     <properties>

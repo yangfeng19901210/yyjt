@@ -1,0 +1,19 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  # Nacos服务器地址
+        namespace: dev                # 命名空间ID（隔离环境）
+      config:
+        import-check:
+          enabled: false
+  zipkin:
+    base-url: http://192.168.2.188:9411 # Zipkin 服务器地址
+    sender.type: web                 # 传输方式（HTTP）
+    sleuth:
+      sampler:
+        probability: 1.0

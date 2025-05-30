@@ -1,0 +1,14 @@
+
+spring:
+  redis:
+    database: 15
+    host: 192.168.2.84
+    port: 6379
+    password: dsk806888
+    lettuce:
+      pool:
+        max-active: 8  # 最大连接数
+        max-wait: 100ms
+        min-idle: 0
+server:
+  port: 9000

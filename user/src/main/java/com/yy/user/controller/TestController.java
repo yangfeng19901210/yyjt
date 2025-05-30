@@ -30,4 +30,6 @@ public class TestController {
         log.info("add testJsonb:{}", testJsonb);
         return testJsonbService.save(testJsonb);
     }
+
+
 }

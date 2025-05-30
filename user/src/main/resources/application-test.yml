@@ -3,10 +3,13 @@ spring:
   config:
     activate:
       on-profile: test
+  application:
+    name: user-service
   cloud:
     nacos:
       discovery:
-        enabled: false
+        server-addr: 127.0.0.1:8848  # Nacos服务器地址
+        namespace: dev                # 命名空间ID（隔离环境）
   # 数据源配置
   datasource:
     url: jdbc:postgresql://192.168.2.84:5432/dev-hltq-dragon?allowMultiQueries=true
@@ -14,7 +17,13 @@ spring:
     password: 056f7c2b54ef4ccfb494c652fca8319d
     driver-class-name: org.postgresql.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+  zipkin:
+    base-url: http://192.168.2.188:9411 # Zipkin 服务器地址
+    sender.type: web                 # 传输方式（HTTP）
+    sleuth:
+      sampler:
+        probability: 1.0
 server:
-  port: 8081
+  port: 8002
 seata:
   enabled: false
